@@ -1,0 +1,16 @@
+# action.yml
+name: 'Sqitch'
+description: 'Run sqitch'
+inputs:
+  command:
+    description: 'Command to run'
+    required: true
+  target:
+    description: 'Target'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.target }}
