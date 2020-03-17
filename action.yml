@@ -5,6 +5,10 @@ inputs:
   command:
     description: 'Command to run'
     required: true
+  base_dir:
+    description: 'Base directory to run from'
+    required: false
+    default: '.'
   target:
     description: 'Target'
     required: true
@@ -13,4 +17,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.command }}
+    - '--chdir'
+    - ${{ inputs.base_dir }}
     - ${{ inputs.target }}
